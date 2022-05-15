@@ -33,17 +33,17 @@ public class BallController : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if(tag == "SmallStarTag")
+        if(other.gameObject.tag == "SmallStarTag")
         {
             this.score += 5;
         }
-        else if(tag == "LargeStarTag")
+        else if(other.gameObject.tag == "LargeStarTag")
+        {
+            this.score += 50;
+        }
+        else if(other.gameObject.tag == "SmallCloudTag" || other.gameObject.tag == "LargeCloudTag")
         {
             this.score += 20;
-        }
-        else if(tag == "SmallCloudTag" || tag == "LargeCloudTag")
-        {
-            this.score += 10;
         }
     }
 }
